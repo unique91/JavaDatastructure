@@ -1,78 +1,62 @@
+import javax.swing.text.DefaultEditorKit.InsertBreakAction;
 
-public class SimpleList implements ListOperation {
+public class SimpleList {
+	
+	public static class Node {
+		private Object data;
+		private Node next;
+		
+		Node(Object data) {
+			this.data = data;
+			this.next = null;
+		}
+		
+		public void setNextLement(Node next) {
+			this.next = next;
+		}
+		
+		public Node getLastElement() {
+			return this.next;
+		}
+		
+		public Object getObject() {
+			return this.data;
+		}
+	}
+	
+	public Node head;
 
-	public SimpleList() {}
+	public SimpleList() { head = null;}
 	
-	Node firstElementNode = new Node("Head");
-	
-	public void insertLastElement(Object data) {
+	public void insert(Object data) {
 		Node newNode = new Node(data);
-		Node lastNode = null;
-		lastNode.getLastElement();
-		lastNode.setNextLement(newNode);
-	}
-
-	@Override
-	public void insertLast(Object data) {
-		Node newNode = new Node(data);
-		Node lastNode = 
-	}
-
-	@Override
-	public void insertFirst(Node node, Object data) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteElement() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean find(Object data) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Node getFirstElement() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Node getLastElement() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void outputList() {
-		// TODO Auto-generated method stub
-		
-	}
-}
-
-class Node {
-	private Object data;
-	private Node next;
-	
-	Node(Object data) {
-		this.data = data;
-		this.next = null;
+		// 1. Linked List empty
+		if(head == null) {
+			head = newNode;
+		} else {
+			// 2. Linked List not empty
+			newNode.next = head;
+			head = newNode;
+		}
 	}
 	
-	public void setNextLement(Node next) {
-		this.next = next;
+	public String toString() {
+		String str = "[";
+		while(this.head != null && this.head.next != null) {
+			str += this.head.data + ", ";
+			this.head = this.head.next;
+		}
+		if(this.head != null) {
+			str += this.head.data + "]";
+		}
+		return str;
 	}
 	
-	public Node getLastElement() {
-		return this.next;
-	}
-	
-	public Object getObject() {
-		return this.data;
+	public static void main(String[] args) {
+		SimpleList list = new SimpleList();
+		list.insert('J');
+		list.insert('o');
+		list.insert('h');
+		System.out.println(list.toString());
 	}
 }
