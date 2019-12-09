@@ -1,0 +1,7 @@
+Julian Reus/100m/10,13
+Joshua Hartmann/100m/10,16
+Marvin Schulte/100m/10,18
+Patrick Domogala/100m/10,32
+Steven Müller/200m/20,42
+Robin Erewa/200m/20,48
+Patrick Domogala/200m/20,74
