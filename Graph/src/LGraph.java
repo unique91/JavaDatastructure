@@ -9,6 +9,21 @@ public class LGraph {
 		for(int i = 0; i < nodeSize; i++) this.node[i] = nodeL[i];
 	}
 	
+	// return direkt weight, if exists direct connection otherwise maxInt
+	int nodeWeight(int u, int v) {
+		if(u == v) return 0;
+		VerbList vL = node[u].neighbours;
+		while(vL != null) {
+			if(vL.goal == v) return vL.wg;
+			vL = vL.next;
+		}
+		return maxInt;
+	}
+	
+	String getNodeDescription(int i) {
+		return node[i].nodeDescription;
+	}
+	
 	class VerbList {
 		int goal;
 		int wg;
