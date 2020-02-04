@@ -1,7 +1,7 @@
 // Define a Graph with Adjazenzmatrix
 // Only Boolean values
 public class AGraph {
-	String[] nodeDescribe = {"a", "b", "c", "d", "e", "f", "g", "h"};
+	String[] nodeDescription = {"a", "b", "c", "d", "e", "f", "g", "h"};
 	int nodeSize;
 	//matrix[u][v] <=> (u,v) elem. E
 	boolean[][] matrix = {{false, true, false, true, true, false, false, false},
