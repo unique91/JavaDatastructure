@@ -24,23 +24,41 @@ public class LGraph {
 		return node[i].nodeDescription;
 	}
 	
-	 class VerbList {
-		int goal;
-		int wg;
-		VerbList next;
-		VerbList(int z, int w, VerbList v) {
-			this.goal = z;
-			this.wg = w;
-			this.next = v;
+	void DFS(int i) {
+		int[] visited = new int[nodeSize];
+		for(int j = 0; j < nodeSize; j++) {
+			visited[j] = 0;
 		}
+		rekDFSVisit(visited, i);
 	}
 	
-     class LKnode {
-		String nodeDescription;
-		VerbList neighbours;
-		LKnode(String s, VerbList v) {
-			this.nodeDescription = s;
-			this.neighbours = v;
+	void rekDFSVisit(int[] visited, int i) {
+		if(visited[i] < 1) {
+			visited[i]++;
+			System.out.println(node[i].nodeDescription);
+			for(int j = 0; j < nodeSize; j++)
+				if(nodeWeight(i,j) < maxInt)
+					rekDFSVisit(visited, j);
 		}
+	}
+}
+
+class VerbList {
+	int goal;
+	int wg;
+	VerbList next;
+	VerbList(int z, int w, VerbList v) {
+		this.goal = z;
+		this.wg = w;
+		this.next = v;
+	}
+}
+
+ class LKnode {
+	String nodeDescription;
+	VerbList neighbours;
+	LKnode(String s, VerbList v) {
+		this.nodeDescription = s;
+		this.neighbours = v;
 	}
 }
