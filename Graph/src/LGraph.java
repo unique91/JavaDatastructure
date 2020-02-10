@@ -24,7 +24,7 @@ public class LGraph {
 		return node[i].nodeDescription;
 	}
 	
-	class VerbList {
+	 class VerbList {
 		int goal;
 		int wg;
 		VerbList next;
@@ -35,7 +35,7 @@ public class LGraph {
 		}
 	}
 	
-	class LKnode {
+     class LKnode {
 		String nodeDescription;
 		VerbList neighbours;
 		LKnode(String s, VerbList v) {
